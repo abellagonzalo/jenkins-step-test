@@ -1,0 +1,29 @@
+plugins {
+    id 'groovy'
+}
+
+group = 'abellagonzalo'
+version = '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+sourceSets {
+    test {
+        groovy {
+            srcDirs += 'fakes'
+        }
+    }
+}
+
+dependencies {
+    implementation 'org.apache.groovy:groovy:4.0.14'
+    testImplementation platform('org.junit:junit-bom:5.10.0')
+    testImplementation 'org.junit.jupiter:junit-jupiter'
+    testImplementation "org.mockito:mockito-core:5.14.1"
+}
+
+test {
+    useJUnitPlatform()
+}
